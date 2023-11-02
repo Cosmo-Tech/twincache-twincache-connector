@@ -22,15 +22,15 @@ def check_env_var(required_env_var):
 
 
 if __name__ == '__main__':
-    REQUIRED_VARS = ['TWIN_CACHE_HOST', 'TWIN_CACHE_PORT', 'TWIN_CACHE_PASSWORD', 'SOURCE', 'TARGET']
+    REQUIRED_VARS = ['TWIN_CACHE_HOST', 'TWIN_CACHE_PORT', 'TWIN_CACHE_PASSWORD', 'TWIN_CACHE_SOURCE', 'TWIN_CACHE_NAME']
     check_env_var(REQUIRED_VARS)
 
     twin_cache_host = os.getenv("TWIN_CACHE_HOST")
     twin_cache_port = os.getenv("TWIN_CACHE_PORT")
     twin_cache_password = os.getenv("TWIN_CACHE_PASSWORD")
 
-    source_redis_graph = os.getenv("SOURCE")
-    target_redis_graph = os.getenv("TARGET")
+    source_redis_graph = os.getenv("TWIN_CACHE_SOURCE")
+    target_redis_graph = os.getenv("TWIN_CACHE_NAME")
 
     if sub_query := os.getenv('QUERIES'):
         logger.info(f"Running sub query: {sub_query}")
