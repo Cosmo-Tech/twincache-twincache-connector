@@ -1,0 +1,2 @@
+CosmoTech_Acceleration_Library~=0.4.0
+redis==4.4.4
