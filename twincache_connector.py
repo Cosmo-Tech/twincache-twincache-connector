@@ -1,10 +1,8 @@
 # Copyright (c) Cosmo Tech corporation.
 # Licensed under the MIT license.
 import logging
-import time
 import os
 import csv
-import redis
 
 from CosmoTech_Acceleration_Library.Modelops.core.io.model_exporter import ModelExporter
 from CosmoTech_Acceleration_Library.Modelops.core.io.model_importer import ModelImporter
@@ -42,7 +40,7 @@ class TwinCacheConnector:
                                  self.password,
                                  export_path)
         if queries:
-            logger.info(f"Running sub queries extract: {queries}")
+            logger.info(f'Running sub queries extract: {queries}')
             exporter.export_from_queries(queries)
         else:
             logger.info(f"Running full extract")
@@ -98,10 +96,3 @@ class TwinCacheConnector:
                                  name=self.name,
                                  password=self.password)
         importer.bulk_import(twins, rels)
-
-    def delete():
-        """
-        Delete the twin cache
-        """
-        r = redis.Redis(self.host, self.port, password=self.password)
-        r.delete(self.name)
