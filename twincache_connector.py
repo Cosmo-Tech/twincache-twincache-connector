@@ -61,7 +61,7 @@ class TwinCacheConnector:
                 os.makedirs(os.path.join(r, 'output'), exist_ok=True)
                 with open(file_path) as f, open(output_file_path, 'w') as out:
                     csv_r = csv.DictReader(f)
-                    new_header = csv_r.fieldnames
+                    new_header = csv_r.fieldnames[:]
 
                     st_m = list(map(lambda st: st[0] in new_header and st[1] in new_header, ST_DETECT))
                     if any(st_m):

@@ -43,6 +43,7 @@ if __name__ == '__main__':
         target_tc.import_from('extract_dir')
     else:
         # simple copy
+        logger.info(f"Running simple copy")
         r = redis.Redis(twin_cache_host, twin_cache_port, password=twin_cache_password)
         r.eval(
             """local o = redis.call('DUMP', KEYS[1]);\
